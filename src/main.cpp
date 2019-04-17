@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 //#include "../inc/mapa.hpp"
+#include "../inc/posicao.hpp"
 
 using namespace std;
 
@@ -19,8 +20,16 @@ int main(){
     mapa1.show_map(lineMain, lineSub);
 */
     //Setar posições
+    Posicao posicionamento1;
     int position[13][13];
-    for (int i = 0; i < 13; i++){
+    posicionamento1.criar_matriz(position);
+    posicionamento1.mostrar_matriz(position);
+    int linha, coluna, tipo;
+    cin >> linha >> coluna >> tipo;
+    posicionamento1.editar_matriz(position, linha, coluna, tipo);
+    posicionamento1.mostrar_matriz(position);
+
+/*    for (int i = 0; i < 13; i++){
         for(int j = 0; j < 13; j++){
             position[i][j] = 0;
         }
@@ -33,5 +42,6 @@ int main(){
             }
         }
     }
+*/
     return 0;
 }
