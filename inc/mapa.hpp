@@ -9,8 +9,9 @@ class Mapa{
     public:
         Mapa();
         ~Mapa();
-        string create_lineMain();
+        //string create_lineMain();
+        void create_lineMain(string lineMain[]);
         string create_lineSub();
         void show_map(string lineMain[], string lineSub);
-        string edit_map();
+        void edit_map(string lineMain[], int line, int column);
 };
