@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "../inc/posicao.hpp"
 
 using namespace std;
@@ -32,4 +33,20 @@ void Posicao::mostrar_matriz(int posicao[][13]){
 
 void Posicao::editar_matriz(int posicao[][13], int line, int column, int tipo){
     posicao[line][column] = tipo;
+}
+
+void Posicao::ler_arquivo(){
+    ifstream arquivo;
+    arquivo.open("../doc/map_1.txt");
+    string line[12];
+    i = 0;
+
+    while(getline(arquivo, line[i])){
+        if(line[i][0] == '0'){continue;}
+
+        
+        i++;
+    }
+
+    arquivo.close();
 }
