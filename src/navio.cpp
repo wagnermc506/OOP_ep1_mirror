@@ -4,6 +4,14 @@
 
 using namespace std;
 
+Navio::Navio(){
+    //cout << "Navio criado" << endl;
+}
+
+Navio::~Navio(){
+    //cout << "Navio destruído" << endl;
+}
+
 void Navio::set_hitPoints(int hitPoints){
     this -> hitPoints = hitPoints;
 }
@@ -42,4 +50,16 @@ void Navio::set_partsNumber(int partsNumber){
 
 int Navio::get_partsNumber(){
     return partsNumber;
+}
+
+void Navio::set_orientation(string orientation){
+    this -> orientation = orientation;
+}
+
+string Navio::get_orientation(){
+    return orientation;
+}
+
+void Navio::recebe_dano(){
+    this -> hitPoints--; 
 }

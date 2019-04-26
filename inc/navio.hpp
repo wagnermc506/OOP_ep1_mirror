@@ -1,3 +1,6 @@
+#ifndef NAVIO_HPP
+#define NAVIO_HPP
+
 #include <string>
 #include <iostream>
 
@@ -11,6 +14,7 @@ class Navio{
         int column;
         int type;
         int partsNumber;
+        string orientation;
     
     public:
         Navio();
@@ -26,5 +30,10 @@ class Navio{
         int get_type();
         void set_partsNumber(int partsNumber);
         int get_partsNumber();
+        void set_orientation(string orientation);
+        string get_orientation();
 
+        void recebe_dano();
 };
+
+#endif

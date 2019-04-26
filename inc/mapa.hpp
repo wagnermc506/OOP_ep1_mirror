@@ -1,3 +1,6 @@
+#ifndef MAPA_HPP
+#define MAPA_HPP
+
 #include <string>
 
 using namespace std;
@@ -15,3 +18,5 @@ class Mapa{
         void show_map(string lineMain[], string lineSub);
         void edit_map(string lineMain[], int line, int column);
 };
+
+#endif
