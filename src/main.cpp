@@ -145,7 +145,10 @@ int main(){
     posicionamento[1].mostrar_matriz(position2);
     */
 
-    
+    Player player[2];
+    for(int c = 0; c < 2; c++){
+        player[c].set_nome(c);
+    }
 
     while(true){
 
