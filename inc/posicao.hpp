@@ -2,6 +2,7 @@
 #define POSICAO_HPP
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class Posicao{
         void setar_matriz(int posicao[][13], int line, int column, int tipo, string orientation, int partsNumber);
 
         //void ler_arquivo(Submarino submarino);
+        void testar_tiro(int posicao[][13], int line, int column, string player_name);
 };
 
 #endif

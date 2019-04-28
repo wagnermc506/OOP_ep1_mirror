@@ -15,6 +15,9 @@ class Player{
 		void set_nome(int player_id);
 		string get_nome();
 
+		int chuta_linha();
+		int chuta_coluna();
+		bool validar_input(int input);
 };
 
 #endif

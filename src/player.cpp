@@ -23,3 +23,36 @@ void Player::set_nome(int player_id){
 string Player::get_nome(){
 	return nome;
 }
+
+int Player::chuta_linha(){
+	cout << "--> " << get_nome() << endl;
+	int linha;
+	bool validacao;
+	do{
+		cout << "Insira a linha de ataque: ";
+		cin >> linha;
+		validacao = validar_input(linha);
+	}while(validacao == false);
+	return linha;
+}
+
+int Player::chuta_coluna(){
+	int coluna;
+	bool validacao;
+	do{
+		cout << "Insira a coluna de ataque: ";
+		cin >> coluna;
+		validacao = validar_input(coluna);
+	}while(validacao == false);
+	return coluna;
+}
+
+bool Player::validar_input(int input){
+	if(input < 0 || input >= 13){
+		cout << "Fora do campo de ataque, insira novamente" << endl;
+		return false;
+	}
+	else{
+		return true;
+	}
+}
