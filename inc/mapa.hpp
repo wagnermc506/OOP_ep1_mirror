@@ -8,7 +8,7 @@ using namespace std;
 class Mapa{
 
     private:
-        int posicao;
+        //int posicao;
     public:
         Mapa();
         ~Mapa();
@@ -16,7 +16,8 @@ class Mapa{
         void create_lineMain(string lineMain[]);
         string create_lineSub();
         void show_map(string lineMain[], string lineSub);
-        void edit_map(string lineMain[], int line, int column);
+        //void edit_map(string lineMain[], int line, int column);
+        void edit_map(string lineMain[], int tipo, int line, int column);
 };
 
 #endif
