@@ -42,6 +42,7 @@ int Player::chuta_coluna(){
 	do{
 		cout << "Insira a coluna de ataque: ";
 		cin >> coluna;
+		cout << endl;
 		validacao = validar_input(coluna);
 	}while(validacao == false);
 	return coluna;
@@ -55,4 +56,8 @@ bool Player::validar_input(int input){
 	else{
 		return true;
 	}
+}
+
+void Player::win_message(){
+	cout << nome << " Venceu!" << endl;
 }

@@ -18,6 +18,7 @@ class Player{
 		int chuta_linha();
 		int chuta_coluna();
 		bool validar_input(int input);
+		void win_message();
 };
 
 #endif

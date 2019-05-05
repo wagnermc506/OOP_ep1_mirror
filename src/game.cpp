@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
 #include "../inc/game.hpp"
 #include "../inc/canoa.hpp"
 #include "../inc/submarino.hpp"
@@ -51,7 +53,7 @@ void Game::set_game(int position1[][13], int position2[][13], string lineMain1[]
     readAndSet.open("./doc/posicoes.txt");
     
     if (readAndSet.is_open()){
-        int qtde_canoa=0, qtde_porta_avioes=0, qtde_submarino=0; 
+        int qtde_canoa = 0, qtde_porta_avioes = 0, qtde_submarino = 0; 
         
         while (!readAndSet.eof()){
             
@@ -150,33 +152,62 @@ void Game::start_game(int position1[][13], int position2[][13], string lineMain1
     for(int c = 0; c < 2; c++){
         player[c].set_nome(c);
     }
-
+    system("reset");
+    //srand(time(0));
+    //int player_time = (rand() % 2);
     int player_time = 0;
     int iline, icolumn;
+    bool player_yet_alive = true;
 
     while(true){
         //system("reset");
         //Primeiro Player joga
         if(player_time == 0){
-            //posicionamento[1].mostrar_matriz(position2);            
+            //posicionamento[1].mostrar_matriz(position2);
+            mapa2.show_map(lineMain2, lineSub);            
             iline = player[0].chuta_linha();
             icolumn = player[0].chuta_coluna();
+            //system("clear");
 
             posicionamento[1].testar_tiro(position2, iline, icolumn, player[0].get_nome());
+            cin.ignore();
+            cin.get();
+            system("clear");
+            player_yet_alive = posicionamento[1].navios_em_jogo(position2);
+            if(player_yet_alive == false){
+                player[0].win_message();
+                break;
+            }
             mapa2.edit_map(lineMain2, position2[iline][icolumn], iline, icolumn);
             mapa2.show_map(lineMain2, lineSub);
+            cout << "Aperte enter para continuar" << endl;
+            cin.get();
+            system("clear");
             //posicionamento[1].mostrar_matriz(position2);
             player_time++;
         }
         //Segundo Player joga
         else if(player_time == 1){
-            //posicionamento[0].mostrar_matriz(position2);            
+            //posicionamento[0].mostrar_matriz(position2);
+            mapa1.show_map(lineMain1, lineSub);            
             iline = player[1].chuta_linha();
             icolumn = player[1].chuta_coluna();
+            //system("clear");
 
             posicionamento[0].testar_tiro(position1, iline, icolumn, player[1].get_nome());
+            cin.ignore();
+            cin.get();
+            system("clear");
+            player_yet_alive = posicionamento[0].navios_em_jogo(position1);
+            if(player_yet_alive == false){
+                player[1].win_message();
+                break;
+            }
             mapa1.edit_map(lineMain1, position1[iline][icolumn], iline, icolumn);
             mapa1.show_map(lineMain1, lineSub);
+            cout << "Aperte enter para continuar" << endl;
+            cin.get();
+            system("clear");
             //posicionamento[0].mostrar_matriz(position2);
             player_time--;
         }

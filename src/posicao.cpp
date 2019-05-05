@@ -5,7 +5,6 @@
 #include <cstdlib>
 #include <ctime>
 #include "../inc/posicao.hpp"
-#include "../inc/submarino.hpp"
 
 using namespace std;
 
@@ -79,11 +78,8 @@ void Posicao::testar_tiro(int position[][13], int line, int column, string playe
     else if(position[line][column] == 11){
         cout << "Canoa já foi destruída" << endl;
     }
-    /*else if(position[line][column] == 7){
-        cout << "Embarcação já destruida neste local" << endl;
-    }*/
     else if(position[line][column] == 1){
-        cout << "Destriu uma Canoa!" << endl;
+        cout << player_name << " destriu uma Canoa!" << endl;
         position[line][column] = 11;
     }
     //Se o alvo for um Submarino
@@ -91,11 +87,11 @@ void Posicao::testar_tiro(int position[][13], int line, int column, string playe
         cout << "Parte de submarino já destruído" << endl;
     }
     else if(position[line][column] == 21){
-        cout << "Destruiu uma parte de um Submarino!" << endl;
+        cout << player_name << "destruiu uma parte de um Submarino!" << endl;
         position[line][column] = 22;
     }
     else if(position[line][column] == 2){
-        cout << "Acertou um Submarino!" << endl;
+        cout << player_name << "Acertou um Submarino!" << endl;
         position[line][column] = 21;
     }
     //Se o alvo for um Porta-Aviões
@@ -103,7 +99,7 @@ void Posicao::testar_tiro(int position[][13], int line, int column, string playe
         srand(time(0));
         int sorteio = (rand() % 2);
         if(sorteio == 0){
-            cout << "Destruiu uma parte de um Porta-Aviões!" << endl;
+            cout << player_name << "Destruiu uma parte de um Porta-Aviões!" << endl;
             position[line][column] = 32;
         }
         else if(sorteio == 1){
@@ -116,22 +112,23 @@ void Posicao::testar_tiro(int position[][13], int line, int column, string playe
         cout << player_name << " atirou na água" << endl;
         position[line][column] = 5; 
     }
+    cout << endl;
 }
 
-/*void Posicao::ler_arquivo(Submarino submarino){
-    ifstream readFile;
-    readFile.open("../doc/map_1.txt");
-    string line, type, orientation;
-    int linha, coluna;
-
-    while(getline(readFile, line)){
-        if(line[0] == '#' || line.empty()){continue;}
-
-        istringstream file;
-        file.str(line);
-        file >> linha >> coluna >> type >> orientation;
-        submarino.set_line();
-
+bool Posicao::navios_em_jogo(int position[][13]){
+    int cont = 0;
+    for(int i = 0; i < 13; i++){
+        for(int j = 0; j < 13; j++){
+            if(position[i][j] == 1 || position[i][j] == 2 || position[i][j] == 21 || position[i][j] == 3 || position[i][j] == 31){
+                cont++;
+            }
+        }
     }
-    readFile.close();
-}*/
+    if(cont > 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+    return true;
+}
