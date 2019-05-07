@@ -27,3 +27,6 @@ $ make run
 -> Porta_Aviões: Ocupa quatro casas, e é possível que ele intercepte os tiros, desta forma achando a embarcação, porém não destruindo-a;
  
 Para um jogador ganhar, ele deve destruir todas as embarcações do adversário.
+
+
+(Nota relacionada aos commits: Os dois últimos commits foram dados no nome de outra pessoa, pois eu peguei o computador emprestado para editar o README, e esqueci de alterar o usuário local para meu nome e email, ficando assim com as credenciais globais do git daquela máquina.)
