@@ -153,9 +153,9 @@ void Game::start_game(int position1[][13], int position2[][13], string lineMain1
         player[c].set_nome(c);
     }
     system("reset");
-    //srand(time(0));
-    //int player_time = (rand() % 2);
-    int player_time = 0;
+    srand(time(0));
+    int player_time = (rand() % 2);
+    //int player_time = 0;
     int iline, icolumn;
     bool player_yet_alive = true;
 
